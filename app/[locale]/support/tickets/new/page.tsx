@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { TicketForm } from "@/components/forms/ticket-form";
@@ -7,6 +8,12 @@ import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 export default async function NewTicketPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

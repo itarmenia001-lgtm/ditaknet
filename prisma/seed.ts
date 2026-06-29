@@ -22,13 +22,21 @@ async function main() {
     update: {
       name,
       passwordHash,
-      role: "ADMIN"
+      role: "ADMIN",
+      accountStatus: "APPROVED",
+      subscriptionStatus: "ACTIVE",
+      purchaseStatus: "PURCHASED",
+      approvedAt: new Date()
     },
     create: {
       name,
       email,
       passwordHash,
       role: "ADMIN",
+      accountStatus: "APPROVED",
+      subscriptionStatus: "ACTIVE",
+      purchaseStatus: "PURCHASED",
+      approvedAt: new Date(),
       preferredLanguage: "hy",
       interestedPackage: "PROFESSIONAL",
       useCase: "PROFESSIONAL_IT_MONITORING"

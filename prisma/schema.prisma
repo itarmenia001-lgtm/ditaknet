@@ -8,47 +8,72 @@ datasource db {
 }
 
 model User {
-  id                 String             @id @default(cuid())
-  name               String
-  email              String             @unique
-  passwordHash       String
-  role               String             @default("USER")
-  companyName        String?
-  phone              String?
-  telegram           String?
-  country            String?
-  preferredLanguage  String             @default("hy")
-  interestedPackage  String?
-  useCase            String?
-  createdAt          DateTime           @default(now())
-  updatedAt          DateTime           @updatedAt
-  licenseRequests    LicenseRequest[]
-  supportTickets     SupportTicket[]
-  supportMessages    SupportMessage[]   @relation("UserSupportMessages")
-  adminMessages      SupportMessage[]   @relation("AdminSupportMessages")
-  discussions         Discussion[]
-  discussionReplies  DiscussionReply[]
+  id                    String            @id @default(cuid())
+  name                  String
+  email                 String            @unique
+  passwordHash          String
+  role                  String            @default("USER")
+  accountStatus         String            @default("PENDING")
+  subscriptionStatus    String            @default("NONE")
+  purchaseStatus        String            @default("NOT_PURCHASED")
+  companyName           String?
+  phone                 String?
+  telegram              String?
+  country               String?
+  preferredLanguage     String            @default("hy")
+  interestedPackage     String?
+  useCase               String?
+  approvedAt            DateTime?
+  subscriptionExpiresAt DateTime?
+  lastLoginAt           DateTime?
+  lastLoginIp           String?
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
+  sessions              UserSession[]
+  licenseRequests       LicenseRequest[]
+  supportTickets        SupportTicket[]
+  supportMessages       SupportMessage[]  @relation("UserSupportMessages")
+  adminMessages         SupportMessage[]  @relation("AdminSupportMessages")
+  discussions           Discussion[]
+  discussionReplies     DiscussionReply[]
+}
+
+model UserSession {
+  id         String    @id @default(cuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sessionId  String    @unique
+  ipAddress  String?
+  country    String?
+  city       String?
+  userAgent  String?
+  createdAt  DateTime  @default(now())
+  lastSeenAt DateTime  @default(now())
+  revokedAt  DateTime?
+
+  @@index([userId])
+  @@index([lastSeenAt])
 }
 
 model LicenseRequest {
-  id                String   @id @default(cuid())
-  userId            String?
-  user              User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
-  installationId    String
-  currentPackage    String
-  requestedPackage  String
-  ownerName         String
-  companyName       String?
-  email             String
-  phone             String?
-  telegram          String?
-  currentDevices    Int?
-  currentNetworks   Int?
-  reason            String
-  status            String   @default("NEW")
-  adminNotes        String?
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  id               String   @id @default(cuid())
+  userId           String?
+  user             User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  installationId   String
+  currentPackage   String
+  requestedPackage String
+  ownerName        String
+  companyName      String?
+  email            String
+  phone            String?
+  telegram         String?
+  currentDevices   Int?
+  currentNetworks  Int?
+  reason           String
+  status           String   @default("NEW")
+  adminNotes       String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 }
 
 model SupportTicket {

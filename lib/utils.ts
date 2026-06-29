@@ -18,6 +18,10 @@ export function formatDate(value: Date | string | null | undefined, locale = "hy
   }).format(new Date(value));
 }
 
+export function minutesAgoDate(minutes: number) {
+  return new Date(Date.now() - minutes * 60 * 1000);
+}
+
 export function compactNumber(value: number | null | undefined) {
   if (typeof value !== "number") {
     return "-";

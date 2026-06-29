@@ -62,9 +62,6 @@
       "description": "DitakNet-ը աշխատում է հենց վերահսկվող ցանցին մոտ։ Այն հարմար է փոքր գրասենյակների, CCTV համակարգերի, բիզնես ցանցերի և պրոֆեսիոնալ IT support թիմերի համար։"
     },
     "features": {
-      "eyebrow": "Կարևոր կետեր",
-      "title": "Առաջին օգտակար monitoring տեսքի համար անհրաժեշտ ամբողջ միջուկը",
-      "description": "Discovery, checks, alerts, reports և support workflows՝ կազմակերպված իրական տեղային աշխատանքի շուրջ։",
       "0": {
         "title": "Ավտոմատ discovery",
         "description": "Սքանավորեք թույլատրված local subnet-ները և արագ գտեք ակտիվ IP սարքերն ու services-ը։"
@@ -88,7 +85,10 @@
       "5": {
         "title": "Reports և topology",
         "description": "Դիտեք uptime-ը, service state-երը և սարքերի կապերը մեկ տեղում։"
-      }
+      },
+      "eyebrow": "Կարևոր կետեր",
+      "title": "Առաջին օգտակար monitoring տեսքի համար անհրաժեշտ ամբողջ միջուկը",
+      "description": "Discovery, checks, alerts, reports և support workflows՝ կազմակերպված իրական տեղային աշխատանքի շուրջ։"
     },
     "dashboard": {
       "title": "Monitoring snapshot",
@@ -232,16 +232,46 @@
   "faq": {
     "title": "Հաճախ տրվող հարցեր",
     "items": {
-      "0": { "q": "Ի՞նչ է DitakNet-ը", "a": "Տեղային network monitoring հարթակ է devices-ի, services-ի, alerts-ի և support workflows-ի համար։" },
-      "1": { "q": "Պե՞տք է internet", "a": "Core monitoring-ը պետք է աշխատի network-ի ներսում։ Internet-ը կարող է պետք լինել updates-ի, notifications-ի կամ license communication-ի համար։" },
-      "2": { "q": "Կարո՞ղ է աշխատել TrueNAS-ի վրա", "a": "Այո, product-ը պատրաստվում է Docker և TrueNAS-style deployment-ի համար։" },
-      "3": { "q": "Ի՞նչն է free", "a": "Free package-ը ներառում է basic limits՝ devices, մեկ subnet/VLAN, checks, alerts, reports և local deployment։" },
-      "4": { "q": "Ի՞նչն է պահանջում activation", "a": "Medium և Professional packages-ը պահանջում են license request և activation process։" },
-      "5": { "q": "Կարո՞ղ է monitor անել cameras", "a": "Այո, կարող է network checks-ով հետևել camera և NVR availability-ին։" },
-      "6": { "q": "Կարո՞ղ է monitor անել servers", "a": "Այո, աջակցում է server checks և agent monitoring բարձր փաթեթներում։" },
-      "7": { "q": "Սքանավորում է public internet-ը", "a": "Ոչ։ Նախատեսված discovery scope-ը approved local networks և VLANs են։" },
-      "8": { "q": "Սքանավորումն անվտանգ է", "a": "Discovery-ն պետք է սահմանափակվի այն ցանցերով, որոնք դուք կառավարում եք, և կազմաձևվի safe local scopes-ով։" },
-      "9": { "q": "Ինչպե՞ս request անել license", "a": "Օգտագործեք license request form-ը և նշեք installation ID-ն ու package need-ը։" }
+      "0": {
+        "q": "Ի՞նչ է DitakNet-ը",
+        "a": "Տեղային network monitoring հարթակ է devices-ի, services-ի, alerts-ի և support workflows-ի համար։"
+      },
+      "1": {
+        "q": "Պե՞տք է internet",
+        "a": "Core monitoring-ը պետք է աշխատի network-ի ներսում։ Internet-ը կարող է պետք լինել updates-ի, notifications-ի կամ license communication-ի համար։"
+      },
+      "2": {
+        "q": "Կարո՞ղ է աշխատել TrueNAS-ի վրա",
+        "a": "Այո, product-ը պատրաստվում է Docker և TrueNAS-style deployment-ի համար։"
+      },
+      "3": {
+        "q": "Ի՞նչն է free",
+        "a": "Free package-ը ներառում է basic limits՝ devices, մեկ subnet/VLAN, checks, alerts, reports և local deployment։"
+      },
+      "4": {
+        "q": "Ի՞նչն է պահանջում activation",
+        "a": "Medium և Professional packages-ը պահանջում են license request և activation process։"
+      },
+      "5": {
+        "q": "Կարո՞ղ է monitor անել cameras",
+        "a": "Այո, կարող է network checks-ով հետևել camera և NVR availability-ին։"
+      },
+      "6": {
+        "q": "Կարո՞ղ է monitor անել servers",
+        "a": "Այո, աջակցում է server checks և agent monitoring բարձր փաթեթներում։"
+      },
+      "7": {
+        "q": "Սքանավորում է public internet-ը",
+        "a": "Ոչ։ Նախատեսված discovery scope-ը approved local networks և VLANs են։"
+      },
+      "8": {
+        "q": "Սքանավորումն անվտանգ է",
+        "a": "Discovery-ն պետք է սահմանափակվի այն ցանցերով, որոնք դուք կառավարում եք, և կազմաձևվի safe local scopes-ով։"
+      },
+      "9": {
+        "q": "Ինչպե՞ս request անել license",
+        "a": "Օգտագործեք license request form-ը և նշեք installation ID-ն ու package need-ը։"
+      }
     }
   },
   "blog": {
@@ -299,9 +329,26 @@
       "contact-messages": "Contact messages",
       "tickets": "Tickets",
       "discussions": "Discussions",
-      "settings": "Settings"
+      "settings": "Settings",
+      "sessions": "????????",
+      "pendingUsers": "?????? users",
+      "activeSubscribers": "????? ???????????"
     },
-    "settingsText": "Basic settings-ը պատրաստվում են environment variables-ով։ Editable database-backed settings կարելի է ավելացնել հետո։"
+    "settingsText": "Basic settings-ը պատրաստվում են environment variables-ով։ Editable database-backed settings կարելի է ավելացնել հետո։",
+    "role": "?????????????",
+    "approval": "?????????",
+    "subscription": "??????????????????",
+    "purchase": "?????",
+    "subscriptionExpiresAt": "????????????????? ?????",
+    "online": "?????? ?",
+    "offline": "???????? ?",
+    "connection": "???????",
+    "access": "???????????????",
+    "lastSeen": "?????? ????????????",
+    "lastLogin": "?????? ?????",
+    "noExpiry": "?????? ??????? ???",
+    "revoked": "???????? ?????",
+    "activeSession": "????? ?????"
   },
   "forms": {
     "fields": {
@@ -396,6 +443,23 @@
       "OPEN": "Բաց",
       "ANSWERED": "Պատասխանված",
       "CLOSED": "Փակ"
+    },
+    "account": {
+      "PENDING": "??????? ?",
+      "APPROVED": "?????????",
+      "SUSPENDED": "????????"
+    },
+    "subscription": {
+      "NONE": "???????? ??",
+      "TRIAL": "?????????",
+      "ACTIVE": "?????",
+      "EXPIRED": "?????????",
+      "CANCELED": "?????????"
+    },
+    "purchase": {
+      "NOT_PURCHASED": "?? ????",
+      "REQUESTED": "???? ? ????????",
+      "PURCHASED": "???? ?"
     }
   }
 }

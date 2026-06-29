@@ -1,10 +1,23 @@
+import type { Metadata } from "next";
+
 import { LicenseRequestForm } from "@/components/forms/license-request-form";
 import { Card } from "@/components/ui/card";
 import { getSession } from "@/lib/auth";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
+import { localizedPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
+
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  return localizedPageMetadata(params, {
+    path: "/license/request",
+    titleKey: "license.title",
+    descriptionKey: "license.description",
+    fallbackTitle: "Request DitakNet license activation",
+    fallbackDescription: "Send an installation ID and package request for DitakNet license activation."
+  });
+}
 
 export default async function LicenseRequestPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

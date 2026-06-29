@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
 import { Building2, Compass, Crosshair, Users } from "lucide-react";
 
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { Card } from "@/components/ui/card";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
+import { localizedPageMetadata } from "@/lib/seo";
 
 const blocks = [
   ["what", Building2],
@@ -11,6 +13,16 @@ const blocks = [
   ["why", Crosshair],
   ["vision", Compass]
 ] as const;
+
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  return localizedPageMetadata(params, {
+    path: "/about",
+    titleKey: "about.title",
+    descriptionKey: "about.description",
+    fallbackTitle: "About DitakNet",
+    fallbackDescription: "Learn who DitakNet is for and why it helps reduce physical IT visits."
+  });
+}
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

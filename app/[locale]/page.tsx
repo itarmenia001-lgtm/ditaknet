@@ -1,4 +1,4 @@
-import Image from "next/image";
+import type { Metadata } from "next";
 import { ArrowRight, Bell, Camera, CheckCircle2, Container, Network, Radar, Server } from "lucide-react";
 
 import { DashboardPreview } from "@/components/marketing/dashboard-preview";
@@ -9,8 +9,19 @@ import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
+import { localizedPageMetadata } from "@/lib/seo";
 
 const featureIcons = [Radar, Camera, Server, Bell, Container, Network] as const;
+
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  return localizedPageMetadata(params, {
+    path: "/",
+    titleKey: "home.metaTitle",
+    descriptionKey: "home.metaDescription",
+    fallbackTitle: "DitakNet",
+    fallbackDescription: "DitakNet local network visibility, monitoring, and support portal."
+  });
+}
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

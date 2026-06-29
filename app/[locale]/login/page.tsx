@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { BrandLogo } from "@/components/brand/brand-logo";
@@ -8,6 +9,12 @@ import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 export default async function LoginPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

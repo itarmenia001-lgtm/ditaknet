@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 import { Locale, Messages, createTranslator } from "@/lib/i18n-core";
 
-const adminNav = ["users", "license-requests", "contact-messages", "tickets", "discussions", "settings"] as const;
+const adminNav = ["users", "sessions", "license-requests", "contact-messages", "tickets", "discussions", "settings"] as const;
 
 export function AdminShell({ locale, messages, children }: { locale: Locale; messages: Messages; children: ReactNode }) {
   const t = createTranslator(messages);

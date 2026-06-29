@@ -1,10 +1,11 @@
 import "server-only";
 
 import bcrypt from "bcryptjs";
-import { cookies } from "next/headers";
-import { createHmac, randomBytes, timingSafeEqual } from "crypto";
+import { cookies, headers } from "next/headers";
+import { createHmac, randomBytes, randomUUID, timingSafeEqual } from "crypto";
 
 import { db } from "@/lib/db";
+import { canUseAuthenticatedSession } from "@/lib/permissions";
 
 export const SESSION_COOKIE = "ditaknet_session";
 const SESSION_TTL_SECONDS = 60 * 60 * 24 * 30;
@@ -14,18 +15,32 @@ export type SessionUser = {
   name: string;
   email: string;
   role: string;
+  accountStatus: string;
+  subscriptionStatus: string;
+  purchaseStatus: string;
   preferredLanguage: string;
   interestedPackage: string | null;
+  subscriptionExpiresAt: Date | null;
 };
 
 type SessionPayload = {
   userId: string;
+  sessionId?: string;
   expiresAt: number;
+};
+
+type RequestMeta = {
+  ipAddress: string | null;
+  country: string | null;
+  city: string | null;
+  userAgent: string | null;
 };
 
 function getAuthSecret() {
   const secret = process.env.NEXTAUTH_SECRET;
 
+  // Development gets an in-memory secret so local work is easy, while production
+  // must provide a persistent secret or every restart would break sessions.
   if (!secret && process.env.NODE_ENV !== "production") {
     const globalForSecret = globalThis as unknown as { ditaknetDevSecret?: string };
     globalForSecret.ditaknetDevSecret ??= randomBytes(32).toString("hex");
@@ -86,11 +101,36 @@ export function verifySessionToken(token: string | undefined) {
 }
 
 export async function createSession(user: { id: string }) {
+  const sessionId = randomUUID();
+  const meta = await getRequestMeta();
   const token = signSession({
     userId: user.id,
+    sessionId,
     expiresAt: Date.now() + SESSION_TTL_SECONDS * 1000
   });
   const cookieStore = await cookies();
+
+  // Store both a signed cookie and a database session row so admins can revoke
+  // individual browser sessions without changing the global signing secret.
+  await db.$transaction([
+    db.userSession.create({
+      data: {
+        userId: user.id,
+        sessionId,
+        ipAddress: meta.ipAddress,
+        country: meta.country,
+        city: meta.city,
+        userAgent: meta.userAgent
+      }
+    }),
+    db.user.update({
+      where: { id: user.id },
+      data: {
+        lastLoginAt: new Date(),
+        lastLoginIp: meta.ipAddress
+      }
+    })
+  ]);
 
   cookieStore.set({
     name: SESSION_COOKIE,
@@ -105,6 +145,17 @@ export async function createSession(user: { id: string }) {
 
 export async function destroySession() {
   const cookieStore = await cookies();
+  const payload = verifySessionToken(cookieStore.get(SESSION_COOKIE)?.value);
+
+  if (payload?.sessionId) {
+    await db.userSession
+      .updateMany({
+        where: { sessionId: payload.sessionId, revokedAt: null },
+        data: { revokedAt: new Date() }
+      })
+      .catch(() => undefined);
+  }
+
   cookieStore.delete(SESSION_COOKIE);
 }
 
@@ -116,6 +167,31 @@ export async function getSession(): Promise<{ user: SessionUser } | null> {
     return null;
   }
 
+  if (payload.sessionId) {
+    const meta = await getRequestMeta();
+    await db.userSession
+      .updateMany({
+        where: { sessionId: payload.sessionId, revokedAt: null },
+        data: {
+          lastSeenAt: new Date(),
+          ipAddress: meta.ipAddress,
+          country: meta.country,
+          city: meta.city,
+          userAgent: meta.userAgent
+        }
+      })
+      .catch(() => undefined);
+
+    const activeSession = await db.userSession.findUnique({
+      where: { sessionId: payload.sessionId },
+      select: { revokedAt: true }
+    });
+
+    if (!activeSession || activeSession.revokedAt) {
+      return null;
+    }
+  }
+
   const user = await db.user.findUnique({
     where: { id: payload.userId },
     select: {
@@ -123,12 +199,42 @@ export async function getSession(): Promise<{ user: SessionUser } | null> {
       name: true,
       email: true,
       role: true,
+      accountStatus: true,
+      subscriptionStatus: true,
+      purchaseStatus: true,
       preferredLanguage: true,
-      interestedPackage: true
+      interestedPackage: true,
+      subscriptionExpiresAt: true
     }
   });
 
-  return user ? { user } : null;
+  // Suspended profiles lose access immediately, including old cookies that were
+  // issued before the admin changed the account status.
+  if (!user || !canUseAuthenticatedSession(user)) {
+    if (payload.sessionId) {
+      await db.userSession
+        .updateMany({
+          where: { sessionId: payload.sessionId, revokedAt: null },
+          data: { revokedAt: new Date() }
+        })
+        .catch(() => undefined);
+    }
+    return null;
+  }
+
+  return { user };
+}
+
+async function getRequestMeta(): Promise<RequestMeta> {
+  const headerStore = await headers();
+  const forwardedIp = headerStore.get("x-forwarded-for")?.split(",")[0]?.trim() || null;
+
+  return {
+    ipAddress: headerStore.get("cf-connecting-ip") || forwardedIp || headerStore.get("x-real-ip"),
+    country: headerStore.get("cf-ipcountry"),
+    city: headerStore.get("cf-ipcity"),
+    userAgent: headerStore.get("user-agent")
+  };
 }
 
 export async function hashPassword(password: string) {

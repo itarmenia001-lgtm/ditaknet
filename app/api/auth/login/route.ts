@@ -22,6 +22,10 @@ export async function POST(request: Request) {
       return apiError(locale, "auth.invalidLogin", 401);
     }
 
+    if (user.accountStatus === "SUSPENDED") {
+      return apiError(locale, "auth.forbidden", 403);
+    }
+
     await createSession(user);
     return NextResponse.json({ ok: true, redirect: `/${parsed.data.locale}/account` });
   } catch (error) {

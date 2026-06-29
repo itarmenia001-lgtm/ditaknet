@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { BookOpen, HelpCircle, KeyRound, LifeBuoy, MessageSquarePlus, Wrench } from "lucide-react";
 
@@ -6,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { getSession } from "@/lib/auth";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
+import { localizedPageMetadata } from "@/lib/seo";
 
 const supportLinks = [
   ["docs", "docs", BookOpen],
@@ -17,6 +19,16 @@ const supportLinks = [
 ] as const;
 
 export const dynamic = "force-dynamic";
+
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  return localizedPageMetadata(params, {
+    path: "/support",
+    titleKey: "support.title",
+    descriptionKey: "support.description",
+    fallbackTitle: "DitakNet support center",
+    fallbackDescription: "Find installation help, submit a ticket, request a license, or read documentation."
+  });
+}
 
 export default async function SupportPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

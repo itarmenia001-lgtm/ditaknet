@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { MessageSquareText } from "lucide-react";
 
 import { DiscussionReplyForm } from "@/components/forms/discussion-reply-form";
@@ -9,9 +10,20 @@ import { getSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
+import { localizedPageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
+
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  return localizedPageMetadata(params, {
+    path: "/discussions",
+    titleKey: "community.title",
+    descriptionKey: "community.description",
+    fallbackTitle: "DitakNet community discussions",
+    fallbackDescription: "Ask public product questions about DitakNet."
+  });
+}
 
 export default async function DiscussionsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

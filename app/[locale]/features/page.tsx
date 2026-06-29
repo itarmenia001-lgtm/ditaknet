@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
 import { Bell, Camera, ChartNoAxesCombined, Container, Languages, Map, Network, Radar, Route, Server, Settings, ShieldCheck } from "lucide-react";
 
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { Card } from "@/components/ui/card";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
+import { localizedPageMetadata } from "@/lib/seo";
 
 const items = [
   ["network", Network],
@@ -19,6 +21,16 @@ const items = [
   ["languages", Languages],
   ["docker", Container]
 ] as const;
+
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  return localizedPageMetadata(params, {
+    path: "/features",
+    titleKey: "features.title",
+    descriptionKey: "features.description",
+    fallbackTitle: "DitakNet features",
+    fallbackDescription: "Discovery, checks, alerts, reports, topology, and support workflows."
+  });
+}
 
 export default async function FeaturesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

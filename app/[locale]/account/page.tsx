@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FileKey2, LifeBuoy, MessageCircle, PackageCheck, User } from "lucide-react";
@@ -12,6 +13,12 @@ import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
 import { formatDate } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 export default async function AccountPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;
@@ -60,6 +67,30 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
             <div className="flex justify-between gap-4">
               <dt className="text-[var(--muted)]">{t("common.package")}</dt>
               <dd className="font-semibold">{session.user.interestedPackage || "FREE"}</dd>
+            </div>
+            <div className="flex justify-between gap-4">
+              <dt className="text-[var(--muted)]">{t("admin.approval")}</dt>
+              <dd>
+                <Badge tone={session.user.accountStatus === "APPROVED" ? "green" : session.user.accountStatus === "SUSPENDED" ? "red" : "amber"}>
+                  {t(`status.account.${session.user.accountStatus}`)}
+                </Badge>
+              </dd>
+            </div>
+            <div className="flex justify-between gap-4">
+              <dt className="text-[var(--muted)]">{t("admin.subscription")}</dt>
+              <dd>
+                <Badge tone={session.user.subscriptionStatus === "ACTIVE" ? "green" : session.user.subscriptionStatus === "TRIAL" ? "blue" : "gray"}>
+                  {t(`status.subscription.${session.user.subscriptionStatus}`)}
+                </Badge>
+              </dd>
+            </div>
+            <div className="flex justify-between gap-4">
+              <dt className="text-[var(--muted)]">{t("admin.purchase")}</dt>
+              <dd>
+                <Badge tone={session.user.purchaseStatus === "PURCHASED" ? "green" : session.user.purchaseStatus === "REQUESTED" ? "amber" : "gray"}>
+                  {t(`status.purchase.${session.user.purchaseStatus}`)}
+                </Badge>
+              </dd>
             </div>
           </dl>
         </Card>

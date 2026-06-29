@@ -36,6 +36,16 @@ export async function POST(request: Request) {
       }
     });
 
+    if (session?.user.id) {
+      await db.user.update({
+        where: { id: session.user.id },
+        data: {
+          purchaseStatus: "REQUESTED",
+          interestedPackage: parsed.data.requestedPackage
+        }
+      });
+    }
+
     await sendLicenseRequestNotification(parsed.data.email, parsed.data.installationId);
 
     return NextResponse.json({

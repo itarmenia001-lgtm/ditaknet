@@ -15,7 +15,17 @@ export default async function AdminLicenseRequestsPage({ params }: { params: Pro
   const t = createTranslator(messages);
   const requests = await db.licenseRequest.findMany({
     orderBy: { createdAt: "desc" },
-    include: { user: { select: { name: true, email: true } } }
+    include: {
+      user: {
+        select: {
+          name: true,
+          email: true,
+          accountStatus: true,
+          subscriptionStatus: true,
+          purchaseStatus: true
+        }
+      }
+    }
   });
 
   return (
@@ -29,9 +39,26 @@ export default async function AdminLicenseRequestsPage({ params }: { params: Pro
                 <div className="flex flex-wrap items-center gap-2">
                   <h2 className="text-xl font-bold">{item.installationId}</h2>
                   <Badge tone="blue">{t(`status.license.${item.status}`)}</Badge>
-                  <Badge tone="green">{item.currentPackage} → {item.requestedPackage}</Badge>
+                  <Badge tone="green">
+                    {item.currentPackage} {"->"} {item.requestedPackage}
+                  </Badge>
+                  {item.user ? (
+                    <>
+                      <Badge tone={item.user.accountStatus === "APPROVED" ? "green" : item.user.accountStatus === "SUSPENDED" ? "red" : "amber"}>
+                        {t(`status.account.${item.user.accountStatus}`)}
+                      </Badge>
+                      <Badge tone={item.user.subscriptionStatus === "ACTIVE" ? "green" : "gray"}>
+                        {t(`status.subscription.${item.user.subscriptionStatus}`)}
+                      </Badge>
+                      <Badge tone={item.user.purchaseStatus === "PURCHASED" ? "green" : item.user.purchaseStatus === "REQUESTED" ? "amber" : "gray"}>
+                        {t(`status.purchase.${item.user.purchaseStatus}`)}
+                      </Badge>
+                    </>
+                  ) : null}
                 </div>
-                <p className="mt-2 text-sm text-[var(--muted)]">{item.ownerName} · {item.email} · {formatDate(item.createdAt, locale)}</p>
+                <p className="mt-2 text-sm text-[var(--muted)]">
+                  {item.ownerName} / {item.email} / {formatDate(item.createdAt, locale)}
+                </p>
                 <p className="mt-4 whitespace-pre-wrap text-sm leading-6">{item.reason}</p>
                 <p className="mt-3 text-xs font-semibold text-[var(--muted)]">{item.user?.name || item.user?.email || "Public request"}</p>
               </div>

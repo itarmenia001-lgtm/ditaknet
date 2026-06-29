@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { BookOpen, ChevronRight } from "lucide-react";
 
@@ -5,6 +6,17 @@ import { Card } from "@/components/ui/card";
 import { docSlugs } from "@/lib/docs";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
+import { localizedPageMetadata } from "@/lib/seo";
+
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  return localizedPageMetadata(params, {
+    path: "/docs",
+    titleKey: "docs.title",
+    descriptionKey: "docs.description",
+    fallbackTitle: "DitakNet documentation",
+    fallbackDescription: "Guides for installing, activating, and operating DitakNet."
+  });
+}
 
 export default async function DocsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

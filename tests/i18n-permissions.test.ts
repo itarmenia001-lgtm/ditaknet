@@ -4,7 +4,11 @@ import en from "@/messages/en.json";
 import hy from "@/messages/hy.json";
 import ru from "@/messages/ru.json";
 import { createTranslator, locales } from "@/lib/i18n-core";
-import { canAccessAdmin, canAccessOwnedResource } from "@/lib/permissions";
+import {
+  canAccessAdmin,
+  canAccessOwnedResource,
+  canUseAuthenticatedSession
+} from "@/lib/permissions";
 
 describe("i18n", () => {
   it("has all locale files and core navigation keys", () => {
@@ -28,5 +32,11 @@ describe("permissions", () => {
     expect(canAccessOwnedResource({ id: "u1", role: "USER" }, "u1")).toBe(true);
     expect(canAccessOwnedResource({ id: "u2", role: "USER" }, "u1")).toBe(false);
     expect(canAccessOwnedResource({ id: "admin", role: "ADMIN" }, "u1")).toBe(true);
+  });
+
+  it("blocks suspended profiles from authenticated sessions", () => {
+    expect(canUseAuthenticatedSession({ accountStatus: "APPROVED" })).toBe(true);
+    expect(canUseAuthenticatedSession({ accountStatus: "PENDING" })).toBe(true);
+    expect(canUseAuthenticatedSession({ accountStatus: "SUSPENDED" })).toBe(false);
   });
 });

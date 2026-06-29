@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +11,12 @@ import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
 import { formatDate } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 export default async function AccountLicensesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

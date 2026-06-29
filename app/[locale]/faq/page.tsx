@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
+
 import { Card } from "@/components/ui/card";
 import { getDictionary } from "@/lib/i18n";
 import { Locale, createTranslator, normalizeLocale } from "@/lib/i18n-core";
+import { localizedPageMetadata } from "@/lib/seo";
+
+export function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  return localizedPageMetadata(params, {
+    path: "/faq",
+    titleKey: "faq.title",
+    descriptionKey: "home.faqPreview.description",
+    fallbackTitle: "DitakNet FAQ",
+    fallbackDescription: "Common answers about DitakNet installation, activation, scanning, and monitoring."
+  });
+}
 
 export default async function FaqPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;

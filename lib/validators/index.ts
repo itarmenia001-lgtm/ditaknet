@@ -55,6 +55,10 @@ export const ticketPriorityValues = ["NORMAL", "HIGH"] as const;
 export const ticketStatusValues = ["OPEN", "ANSWERED", "CLOSED"] as const;
 export const licenseStatusValues = ["NEW", "IN_REVIEW", "APPROVED", "REJECTED", "COMPLETED"] as const;
 export const discussionStatusValues = ["OPEN", "ANSWERED", "CLOSED"] as const;
+export const roleValues = ["USER", "ADMIN"] as const;
+export const accountStatusValues = ["PENDING", "APPROVED", "SUSPENDED"] as const;
+export const subscriptionStatusValues = ["NONE", "TRIAL", "ACTIVE", "EXPIRED", "CANCELED"] as const;
+export const purchaseStatusValues = ["NOT_PURCHASED", "REQUESTED", "PURCHASED"] as const;
 
 export const registerSchema = z.object({
   fullName: requiredText(2, 100),
@@ -137,6 +141,28 @@ export const adminLicenseUpdateSchema = z.object({
 export const adminTicketUpdateSchema = z.object({
   status: z.enum(ticketStatusValues),
   priority: z.enum(ticketPriorityValues),
+  locale: z.enum(locales).default(defaultLocale)
+});
+
+export const adminUserUpdateSchema = z.object({
+  role: z.enum(roleValues),
+  accountStatus: z.enum(accountStatusValues),
+  subscriptionStatus: z.enum(subscriptionStatusValues),
+  purchaseStatus: z.enum(purchaseStatusValues),
+  interestedPackage: z.enum(packageValues),
+  subscriptionExpiresAt: z
+    .preprocess(
+      (value) => {
+        if (typeof value !== "string" || !value.trim()) {
+          return undefined;
+        }
+
+        const date = new Date(value);
+        return Number.isNaN(date.getTime()) ? value : date;
+      },
+      z.date().optional()
+    )
+    .optional(),
   locale: z.enum(locales).default(defaultLocale)
 });
 

@@ -24,13 +24,26 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
       return apiError(locale, "auth.forbidden", 403);
     }
 
-    await db.licenseRequest.update({
+    const licenseRequest = await db.licenseRequest.update({
       where: { id },
       data: {
         status: parsed.data.status,
         adminNotes: parsed.data.adminNotes
       }
     });
+
+    if (licenseRequest.userId && ["APPROVED", "COMPLETED"].includes(parsed.data.status)) {
+      await db.user.update({
+        where: { id: licenseRequest.userId },
+        data: {
+          accountStatus: "APPROVED",
+          purchaseStatus: "PURCHASED",
+          subscriptionStatus: "ACTIVE",
+          interestedPackage: licenseRequest.requestedPackage,
+          approvedAt: new Date()
+        }
+      });
+    }
 
     return NextResponse.json({ ok: true });
   } catch (error) {

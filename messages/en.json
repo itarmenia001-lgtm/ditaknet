@@ -62,9 +62,6 @@
       "description": "Run DitakNet close to the network you manage. It is useful for small offices, CCTV systems, business networks, and professional IT support teams that need fast visibility without rebuilding infrastructure."
     },
     "features": {
-      "eyebrow": "Highlights",
-      "title": "Everything needed for the first useful monitoring view",
-      "description": "Discovery, checks, alerts, reports, and support workflows are organized around real local operations.",
       "0": {
         "title": "Automatic discovery",
         "description": "Scan approved local subnets and quickly identify active IP devices and services."
@@ -88,7 +85,10 @@
       "5": {
         "title": "Reports and topology",
         "description": "Review uptime, service states, and device relationships in one place."
-      }
+      },
+      "eyebrow": "Highlights",
+      "title": "Everything needed for the first useful monitoring view",
+      "description": "Discovery, checks, alerts, reports, and support workflows are organized around real local operations."
     },
     "dashboard": {
       "title": "Monitoring snapshot",
@@ -329,9 +329,26 @@
       "contact-messages": "Contact messages",
       "tickets": "Tickets",
       "discussions": "Discussions",
-      "settings": "Settings"
+      "settings": "Settings",
+      "sessions": "Sessions",
+      "pendingUsers": "Pending users",
+      "activeSubscribers": "Active subscribers"
     },
-    "settingsText": "Basic settings are prepared through environment variables. Editable database-backed settings can be added later."
+    "settingsText": "Basic settings are prepared through environment variables. Editable database-backed settings can be added later.",
+    "role": "Role",
+    "approval": "Approval",
+    "subscription": "Subscription",
+    "purchase": "Purchase",
+    "subscriptionExpiresAt": "Subscription expires",
+    "online": "Online",
+    "offline": "Offline",
+    "connection": "Connection",
+    "access": "Access",
+    "lastSeen": "Last seen",
+    "lastLogin": "Last login",
+    "noExpiry": "No expiry date",
+    "revoked": "Revoked",
+    "activeSession": "Active session"
   },
   "forms": {
     "fields": {
@@ -426,6 +443,23 @@
       "OPEN": "Open",
       "ANSWERED": "Answered",
       "CLOSED": "Closed"
+    },
+    "account": {
+      "PENDING": "Pending",
+      "APPROVED": "Approved",
+      "SUSPENDED": "Suspended"
+    },
+    "subscription": {
+      "NONE": "No subscription",
+      "TRIAL": "Trial",
+      "ACTIVE": "Active",
+      "EXPIRED": "Expired",
+      "CANCELED": "Canceled"
+    },
+    "purchase": {
+      "NOT_PURCHASED": "Not purchased",
+      "REQUESTED": "Requested",
+      "PURCHASED": "Purchased"
     }
   }
 }
