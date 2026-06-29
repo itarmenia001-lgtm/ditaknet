@@ -1,0 +1,401 @@
+{
+  "language": {
+    "hy": "Հայերեն",
+    "en": "Անգլերեն",
+    "ru": "Ռուսերեն"
+  },
+  "nav": {
+    "home": "Գլխավոր",
+    "features": "Հնարավորություններ",
+    "pricing": "Գներ",
+    "docs": "Փաստաթղթեր",
+    "support": "Աջակցություն",
+    "about": "Մասին",
+    "faq": "ՀՏՀ",
+    "blog": "Նորություններ",
+    "contact": "Կապ",
+    "login": "Մուտք",
+    "register": "Գրանցում",
+    "account": "Հաշիվ",
+    "logout": "Դուրս գալ",
+    "admin": "Ադմին",
+    "menu": "Մենյու"
+  },
+  "footer": {
+    "description": "DitakNet / ԴիտակՆեթ-ը Docker և TrueNAS պատրաստ տեղային network visibility, monitoring, discovery, alerting և IT support հարթակ է։",
+    "links": "Արտադրանք",
+    "contact": "Կապ"
+  },
+  "common": {
+    "brandName": "ԴիտակՆեթ",
+    "back": "Վերադառնալ",
+    "open": "Բացել",
+    "empty": "Գրառումներ դեռ չկան։",
+    "yes": "Այո",
+    "no": "Ոչ",
+    "createdAt": "Ստեղծվել է",
+    "updatedAt": "Թարմացվել է",
+    "status": "Կարգավիճակ",
+    "priority": "Առաջնահերթություն",
+    "package": "Փաթեթ"
+  },
+  "home": {
+    "metaTitle": "DitakNet | Տեղային ցանցի տեսանելիության հարթակ",
+    "metaDescription": "DitakNet-ի public կայք, գրանցում, license request, support և customer portal։",
+    "hero": {
+      "eyebrow": "Տեղային ցանցի monitoring սերվեր",
+      "title": "Վերահսկեք տեղային ցանցը առանց մշտական ֆիզիկական IT այցելությունների",
+      "subtitle": "DitakNet / ԴիտակՆեթ-ը օգնում է տեսնել, հայտնաբերել, վերահսկել և support անել router-ները, cameras-ը, NVR-ները, servers-ը, printers-ը, websites-ը, VLAN-ները և local devices-ը մեկ պարզ portal-ից։",
+      "getStarted": "Սկսել",
+      "requestLicense": "Ուղարկել license request",
+      "viewPricing": "Տեսնել գները",
+      "contactSupport": "Կապ աջակցման հետ",
+      "imageAlt": "DitakNet network operations visual"
+    },
+    "metrics": {
+      "devices": "Սարքեր",
+      "checks": "Ստուգումներ",
+      "alerts": "Alert-ներ"
+    },
+    "explain": {
+      "title": "Ստեղծված է local-first monitoring-ի համար",
+      "description": "DitakNet-ը աշխատում է հենց վերահսկվող ցանցին մոտ։ Այն հարմար է փոքր գրասենյակների, CCTV համակարգերի, բիզնես ցանցերի և պրոֆեսիոնալ IT support թիմերի համար։"
+    },
+    "features": {
+      "eyebrow": "Կարևոր կետեր",
+      "title": "Առաջին օգտակար monitoring տեսքի համար անհրաժեշտ ամբողջ միջուկը",
+      "description": "Discovery, checks, alerts, reports և support workflows՝ կազմակերպված իրական տեղային աշխատանքի շուրջ։",
+      "0": {
+        "title": "Ավտոմատ discovery",
+        "description": "Սքանավորեք թույլատրված local subnet-ները և արագ գտեք ակտիվ IP սարքերն ու services-ը։"
+      },
+      "1": {
+        "title": "Camera և NVR checks",
+        "description": "Հետևեք CCTV համակարգերի, recorder-ների և ցանցային ճանապարհների հասանելիությանը։"
+      },
+      "2": {
+        "title": "Server և website monitoring",
+        "description": "Ping, TCP, HTTP և agent checks-ը օգնում են շուտ հայտնաբերել խափանումները։"
+      },
+      "3": {
+        "title": "Telegram alerts",
+        "description": "Ուղարկեք գործողության համար հստակ notifications այն support channel-ին, որն արդեն օգտագործում եք։"
+      },
+      "4": {
+        "title": "Docker և TrueNAS ready",
+        "description": "Տեղադրեք local՝ container workflow-ներով և storage-friendly deployment-ով։"
+      },
+      "5": {
+        "title": "Reports և topology",
+        "description": "Դիտեք uptime-ը, service state-երը և սարքերի կապերը մեկ տեղում։"
+      }
+    },
+    "dashboard": {
+      "title": "Monitoring snapshot",
+      "healthy": "Առողջ",
+      "warnings": "Զգուշացում",
+      "offline": "Անջատված",
+      "discovery": "Discovery on",
+      "topology": "Topology",
+      "alerts": "Alert-ներ"
+    },
+    "ready": {
+      "title": "Docker և TrueNAS ready",
+      "description": "DitakNet-ը նախատեսված է աշխատել որպես տեղային service՝ սարքերին մոտ։ Պահեք visibility-ն ցանցի ներսում և նվազեցրեք remote dependency-ն։"
+    },
+    "discovery": {
+      "title": "Ավտոմատ discovery",
+      "description": "Սկսեք մեկ subnet-ից, հետո ընդլայնվեք VLAN-ների և client branch-երի վրա, երբ փաթեթը թույլ է տալիս։"
+    },
+    "telegram": {
+      "title": "Telegram alerts",
+      "description": "Ուղարկեք կարևոր events-ը ադմիններին, installer-ներին կամ support operators-ին՝ կարճ context-ով։"
+    },
+    "faqPreview": {
+      "title": "Հարցե՞ր տեղադրումից առաջ",
+      "description": "Կարդացեք internet access-ի, TrueNAS-ի, activation-ի, cameras-ի, safe scanning-ի և free limits-ի պատասխանները։"
+    }
+  },
+  "features": {
+    "title": "DitakNet հնարավորություններ",
+    "description": "Monitoring հարթակ՝ կենտրոնացած իրական local network աշխատանքի վրա՝ discovery, checks, alerts, reports, topology և support։",
+    "items": {
+      "network": "Ցանցի monitoring",
+      "discovery": "Ավտոմատ IP և device discovery",
+      "camera": "Camera և NVR monitoring",
+      "server": "Server monitoring",
+      "checks": "Ping, TCP և HTTP checks",
+      "telegram": "Telegram notifications",
+      "reports": "Reports",
+      "agent": "Agent monitoring",
+      "topology": "Topology",
+      "maintenance": "Maintenance tasks",
+      "languages": "Բազմալեզու UI",
+      "docker": "Docker և TrueNAS support"
+    }
+  },
+  "pricing": {
+    "title": "Փաթեթներ local networks-ի համար",
+    "description": "Սկսեք free տարբերակից, request արեք Medium license աճող sites-ի համար կամ ընտրեք Professional՝ custom limits և multi-branch monitoring-ի համար։",
+    "plans": {
+      "free": {
+        "label": "Free",
+        "name": "Local Basic",
+        "description": "Փոքր գրասենյակների, home lab-երի և առաջին տեղադրումների համար։",
+        "features": {
+          "0": "100 սարք",
+          "1": "1 subnet կամ VLAN",
+          "2": "300 check կամ service",
+          "3": "Quick discovery",
+          "4": "Telegram alerts",
+          "5": "Basic reports",
+          "6": "Docker և TrueNAS support"
+        },
+        "cta": "Շարունակել Free-ով"
+      },
+      "medium": {
+        "label": "Medium",
+        "name": "Local Pro",
+        "description": "Բիզնես ցանցերի համար, երբ պետք է ավելի մեծ visibility և standard support։",
+        "features": {
+          "0": "500 սարք",
+          "1": "Մինչև 10 subnet կամ VLAN",
+          "2": "Agent monitoring",
+          "3": "CPU, RAM և disk checks",
+          "4": "Topology",
+          "5": "Full reports",
+          "6": "Bulk operations և standard support"
+        },
+        "cta": "Request Medium License"
+      },
+      "professional": {
+        "label": "Professional",
+        "name": "Local Enterprise",
+        "description": "Custom limits multi-branch support թիմերի և managed clients-ի համար։",
+        "features": {
+          "0": "Unlimited կամ custom limits",
+          "1": "Multi-branch կամ multi-client",
+          "2": "Advanced reports",
+          "3": "Advanced topology",
+          "4": "Maintenance planning",
+          "5": "Priority support",
+          "6": "Custom license"
+        },
+        "cta": "Request Professional License"
+      }
+    }
+  },
+  "about": {
+    "title": "DitakNet-ի մասին",
+    "description": "DitakNet-ը ստեղծված է, որպեսզի local network monitoring-ը լինի գործնական installer-ների, support թիմերի և բիզնեսների համար։",
+    "what": "Սա local network visibility հարթակ է router-ների, cameras-ի, NVR-ների, servers-ի, websites-ի, printers-ի, VLAN-ների, services-ի, license-ի և support workflows-ի համար։",
+    "who": "Նախատեսված է փոքր գրասենյակների, CCTV operators-ի, IT support թիմերի, MSP-style աշխատանքի և local visibility նախընտրող կազմակերպությունների համար։",
+    "why": "Արտադրանքը նվազեցնում է անպետք site visits-ը՝ ցույց տալով network state-ը մեկ local service-ից։",
+    "vision": "Տեսլականը հուսալի local-first monitoring product է՝ մաքուր licensing-ով, գործնական support-ով և բազմալեզու customer communication-ով։"
+  },
+  "contact": {
+    "title": "Կապ DitakNet-ի հետ",
+    "description": "Ուղարկեք support, license, installation, partnership կամ ընդհանուր հարց։ Հաղորդագրությունը կպահվի owner/admin թիմի համար։",
+    "submit": "Ուղարկել",
+    "success": "Հաղորդագրությունը ստացվեց։ Աջակցումը կապ կհաստատի։"
+  },
+  "support": {
+    "title": "Աջակցման կենտրոն",
+    "description": "Գտեք installation help, ստեղծեք ticket, request արեք license կամ կարդացեք docs-ը։",
+    "helpCenter": "Help center",
+    "newTicket": "Նոր ticket",
+    "tickets": "Իմ tickets",
+    "license": "License request",
+    "docs": "Փաստաթղթեր",
+    "troubleshooting": "Ընդհանուր troubleshooting",
+    "createTicket": "Ստեղծել ticket",
+    "reply": "Պատասխան",
+    "sendReply": "Ուղարկել պատասխան",
+    "ticketDetail": "Ticket details",
+    "needLogin": "Մուտք գործեք support tickets ստեղծելու և դիտելու համար։"
+  },
+  "docs": {
+    "title": "Փաստաթղթեր",
+    "description": "Guides՝ DitakNet տեղադրելու, ակտիվացնելու և օգտագործելու համար։",
+    "items": {
+      "getting-started": "Getting started",
+      "docker-installation": "Docker installation",
+      "truenas-installation": "TrueNAS installation",
+      "first-run-setup": "First-run setup",
+      "network-discovery": "Network discovery",
+      "licensing": "Licensing",
+      "telegram-alerts": "Telegram alerts",
+      "faq": "FAQ"
+    },
+    "body": "Այս էջը պատրաստ է մանրամասն product documentation-ի համար՝ քայլ առ քայլ installation notes, screenshots, troubleshooting և support references։"
+  },
+  "faq": {
+    "title": "Հաճախ տրվող հարցեր",
+    "items": {
+      "0": { "q": "Ի՞նչ է DitakNet-ը", "a": "Տեղային network monitoring հարթակ է devices-ի, services-ի, alerts-ի և support workflows-ի համար։" },
+      "1": { "q": "Պե՞տք է internet", "a": "Core monitoring-ը պետք է աշխատի network-ի ներսում։ Internet-ը կարող է պետք լինել updates-ի, notifications-ի կամ license communication-ի համար։" },
+      "2": { "q": "Կարո՞ղ է աշխատել TrueNAS-ի վրա", "a": "Այո, product-ը պատրաստվում է Docker և TrueNAS-style deployment-ի համար։" },
+      "3": { "q": "Ի՞նչն է free", "a": "Free package-ը ներառում է basic limits՝ devices, մեկ subnet/VLAN, checks, alerts, reports և local deployment։" },
+      "4": { "q": "Ի՞նչն է պահանջում activation", "a": "Medium և Professional packages-ը պահանջում են license request և activation process։" },
+      "5": { "q": "Կարո՞ղ է monitor անել cameras", "a": "Այո, կարող է network checks-ով հետևել camera և NVR availability-ին։" },
+      "6": { "q": "Կարո՞ղ է monitor անել servers", "a": "Այո, աջակցում է server checks և agent monitoring բարձր փաթեթներում։" },
+      "7": { "q": "Սքանավորում է public internet-ը", "a": "Ոչ։ Նախատեսված discovery scope-ը approved local networks և VLANs են։" },
+      "8": { "q": "Սքանավորումն անվտանգ է", "a": "Discovery-ն պետք է սահմանափակվի այն ցանցերով, որոնք դուք կառավարում եք, և կազմաձևվի safe local scopes-ով։" },
+      "9": { "q": "Ինչպե՞ս request անել license", "a": "Օգտագործեք license request form-ը և նշեք installation ID-ն ու package need-ը։" }
+    }
+  },
+  "blog": {
+    "title": "Նորություններ",
+    "description": "Պատրաստ structure product updates-ի, release notes-ի և articles-ի համար։",
+    "placeholderTitle": "DitakNet public site-ը պատրաստ է",
+    "placeholderText": "Admin-managed blog posts-ը կարող է ավելացվել հետո BlogPost model-ով։"
+  },
+  "auth": {
+    "registerTitle": "Ստեղծել հաշիվ",
+    "registerDescription": "Գրանցվեք license requests, support tickets և DitakNet communication դիտելու համար։",
+    "registerCta": "Ստեղծել հաշիվ",
+    "loginTitle": "Մուտք",
+    "loginDescription": "Մուտք գործեք հաշիվ, license requests և support tickets դիտելու համար։",
+    "loginCta": "Մուտք գործել",
+    "emailExists": "Այս email-ով հաշիվ արդեն կա։",
+    "invalidLogin": "Email-ը կամ գաղտնաբառը սխալ է։",
+    "loginRequired": "Պետք է մուտք գործել։",
+    "forbidden": "Այս resource-ին հասանելիություն չունեք։"
+  },
+  "account": {
+    "title": "Հաշիվ",
+    "description": "Կառավարեք DitakNet profile-ը, licenses-ը, tickets-ը, messages-ը և հաջորդ քայլերը։",
+    "nextActions": "Հաջորդ քայլեր",
+    "requestLicense": "Request license",
+    "install": "Ներբեռնել կամ տեղադրել DitakNet",
+    "setupGuide": "Կարդալ setup guide",
+    "contactSupport": "Կապ աջակցման հետ",
+    "licenses": "License requests",
+    "tickets": "Support tickets",
+    "messages": "Contact messages",
+    "profile": "Profile"
+  },
+  "license": {
+    "title": "Request license activation",
+    "description": "Ուղարկեք installation ID-ն և package request-ը։ Այս կայքը հավաքում է requests-ը, բայց չի ստեղծում final activation code և չի բացահայտում signing keys։",
+    "submit": "Ուղարկել license request",
+    "activateInfoTitle": "Activation information",
+    "activateInfoDescription": "Ձեր request-ը պահպանված է։ Support-ը կդիտի և կապ կհաստատի հաջորդ activation քայլերի համար։",
+    "myLicenses": "Իմ license requests"
+  },
+  "community": {
+    "title": "Community discussions",
+    "description": "Տվեք public product questions, որոնք հետո կարող են դառնալ docs կամ FAQ answers։",
+    "ask": "Տալ հարց"
+  },
+  "admin": {
+    "title": "Ադմին",
+    "dashboard": "Admin dashboard",
+    "description": "Կառավարեք users, license requests, contact messages, tickets, discussions և public settings։",
+    "notes": "Admin notes",
+    "nav": {
+      "users": "Users",
+      "license-requests": "License requests",
+      "contact-messages": "Contact messages",
+      "tickets": "Tickets",
+      "discussions": "Discussions",
+      "settings": "Settings"
+    },
+    "settingsText": "Basic settings-ը պատրաստվում են environment variables-ով։ Editable database-backed settings կարելի է ավելացնել հետո։"
+  },
+  "forms": {
+    "fields": {
+      "fullName": "Անուն ազգանուն",
+      "name": "Անուն",
+      "email": "Email",
+      "password": "Գաղտնաբառ",
+      "companyName": "Կազմակերպություն",
+      "phone": "Հեռախոս",
+      "telegram": "Telegram",
+      "country": "Երկիր",
+      "preferredLanguage": "Նախընտրելի լեզու",
+      "interestedPackage": "Հետաքրքրող փաթեթ",
+      "useCase": "Օգտագործման դեպք",
+      "topic": "Թեմա",
+      "message": "Հաղորդագրություն",
+      "installationId": "Installation ID",
+      "ownerName": "Owner name",
+      "currentPackage": "Ընթացիկ փաթեթ",
+      "requestedPackage": "Պահանջվող փաթեթ",
+      "currentDevices": "Ընթացիկ սարքեր",
+      "currentNetworks": "Ընթացիկ ցանցեր",
+      "reason": "Պատճառ կամ նշումներ",
+      "title": "Վերնագիր",
+      "category": "Կատեգորիա",
+      "priority": "Առաջնահերթություն",
+      "body": "Բովանդակություն",
+      "isPublic": "Տեսանելի է public"
+    },
+    "hints": {
+      "password": "Օգտագործեք առնվազն 8 նիշ։"
+    },
+    "actions": {
+      "save": "Պահպանել",
+      "saving": "Պահպանվում է..."
+    },
+    "errors": {
+      "generic": "Ինչ-որ բան սխալ է։ Փորձեք կրկին։",
+      "invalidPayload": "Ստուգեք form fields-ը։",
+      "invalidField": "Ստուգեք այս դաշտը։"
+    },
+    "packages": {
+      "FREE": "Free / Local Basic",
+      "MEDIUM": "Medium / Local Pro",
+      "PROFESSIONAL": "Professional / Local Enterprise"
+    },
+    "useCases": {
+      "HOME_SMALL_OFFICE": "Տուն / Փոքր գրասենյակ",
+      "CCTV_CAMERA_SYSTEM": "CCTV / Camera System",
+      "SERVERS_AND_WEBSITES": "Servers and Websites",
+      "BUSINESS_NETWORK": "Business Network",
+      "PROFESSIONAL_IT_MONITORING": "Professional IT Monitoring"
+    },
+    "contactTopics": {
+      "SUPPORT": "Աջակցություն",
+      "LICENSE": "License",
+      "INSTALLATION_HELP": "Installation help",
+      "PARTNERSHIP": "Partnership",
+      "OTHER": "Այլ"
+    },
+    "ticketCategories": {
+      "INSTALLATION": "Installation",
+      "DISCOVERY": "Discovery",
+      "LICENSE": "License",
+      "TRUENAS": "TrueNAS",
+      "DOCKER": "Docker",
+      "TELEGRAM": "Telegram",
+      "CAMERA_NVR": "Camera/NVR",
+      "SERVER_MONITORING": "Server monitoring",
+      "BUG": "Bug",
+      "OTHER": "Այլ"
+    },
+    "priorities": {
+      "NORMAL": "Սովորական",
+      "HIGH": "Բարձր"
+    }
+  },
+  "status": {
+    "license": {
+      "NEW": "Նոր",
+      "IN_REVIEW": "Դիտարկման մեջ",
+      "APPROVED": "Հաստատված",
+      "REJECTED": "Մերժված",
+      "COMPLETED": "Ավարտված"
+    },
+    "ticket": {
+      "OPEN": "Բաց",
+      "ANSWERED": "Պատասխանված",
+      "CLOSED": "Փակ"
+    },
+    "discussion": {
+      "OPEN": "Բաց",
+      "ANSWERED": "Պատասխանված",
+      "CLOSED": "Փակ"
+    }
+  }
+}

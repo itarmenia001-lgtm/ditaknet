@@ -1,0 +1,431 @@
+{
+  "language": {
+    "hy": "Armenian",
+    "en": "English",
+    "ru": "Russian"
+  },
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "docs": "Docs",
+    "support": "Support",
+    "about": "About",
+    "faq": "FAQ",
+    "blog": "News",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "account": "Account",
+    "logout": "Logout",
+    "admin": "Admin",
+    "menu": "Menu"
+  },
+  "footer": {
+    "description": "DitakNet is a Docker and TrueNAS-ready network visibility, monitoring, discovery, alerting, and IT support platform for local infrastructure.",
+    "links": "Product",
+    "contact": "Contact"
+  },
+  "common": {
+    "brandName": "DitakNet",
+    "back": "Back",
+    "open": "Open",
+    "empty": "No records yet.",
+    "yes": "Yes",
+    "no": "No",
+    "createdAt": "Created",
+    "updatedAt": "Updated",
+    "status": "Status",
+    "priority": "Priority",
+    "package": "Package"
+  },
+  "home": {
+    "metaTitle": "DitakNet | Local network visibility platform",
+    "metaDescription": "Public website, registration, license request, support, and customer portal for DitakNet.",
+    "hero": {
+      "eyebrow": "Local network visibility platform",
+      "title": "Monitor your local network without constant physical IT visits",
+      "subtitle": "DitakNet helps businesses see, discover, monitor, and support routers, cameras, NVRs, servers, printers, websites, VLANs, and local devices from one clear portal.",
+      "getStarted": "Get Started",
+      "requestLicense": "Request License",
+      "viewPricing": "View Pricing",
+      "contactSupport": "Contact Support",
+      "imageAlt": "DitakNet network operations visual"
+    },
+    "metrics": {
+      "devices": "Devices",
+      "checks": "Checks",
+      "alerts": "Alerts"
+    },
+    "explain": {
+      "title": "Built for local-first monitoring",
+      "description": "Run DitakNet close to the network you manage. It is useful for small offices, CCTV systems, business networks, and professional IT support teams that need fast visibility without rebuilding infrastructure."
+    },
+    "features": {
+      "eyebrow": "Highlights",
+      "title": "Everything needed for the first useful monitoring view",
+      "description": "Discovery, checks, alerts, reports, and support workflows are organized around real local operations.",
+      "0": {
+        "title": "Automatic discovery",
+        "description": "Scan approved local subnets and quickly identify active IP devices and services."
+      },
+      "1": {
+        "title": "Camera and NVR checks",
+        "description": "Track CCTV systems, recorder availability, and network paths."
+      },
+      "2": {
+        "title": "Server and website monitoring",
+        "description": "Ping, TCP, HTTP, and agent checks help find outages early."
+      },
+      "3": {
+        "title": "Telegram alerts",
+        "description": "Send actionable notifications to the support channel you already use."
+      },
+      "4": {
+        "title": "Docker and TrueNAS ready",
+        "description": "Install locally with container workflows and storage-friendly deployment."
+      },
+      "5": {
+        "title": "Reports and topology",
+        "description": "Review uptime, service states, and device relationships in one place."
+      }
+    },
+    "dashboard": {
+      "title": "Monitoring snapshot",
+      "healthy": "Healthy",
+      "warnings": "Warnings",
+      "offline": "Offline",
+      "discovery": "Discovery on",
+      "topology": "Topology",
+      "alerts": "Alerts"
+    },
+    "ready": {
+      "title": "Docker and TrueNAS ready",
+      "description": "DitakNet is designed to run as a local service near your devices. Keep visibility inside the network, reduce remote dependency, and prepare for later license activation."
+    },
+    "discovery": {
+      "title": "Automatic discovery",
+      "description": "Start with one subnet, then expand to VLANs and client branches when your package allows it."
+    },
+    "telegram": {
+      "title": "Telegram alerts",
+      "description": "Send critical events to administrators, installers, or support operators with concise context."
+    },
+    "faqPreview": {
+      "title": "Questions before installation?",
+      "description": "Review the common answers about internet access, TrueNAS, activation, cameras, safe scanning, and free limits."
+    }
+  },
+  "features": {
+    "title": "DitakNet features",
+    "description": "A monitoring platform focused on real local network work: discovery, checks, alerts, reports, topology, and support.",
+    "items": {
+      "network": "Network monitoring",
+      "discovery": "Automatic IP and device discovery",
+      "camera": "Camera and NVR monitoring",
+      "server": "Server monitoring",
+      "checks": "Ping, TCP, and HTTP checks",
+      "telegram": "Telegram notifications",
+      "reports": "Reports",
+      "agent": "Agent monitoring",
+      "topology": "Topology",
+      "maintenance": "Maintenance tasks",
+      "languages": "Multi-language UI",
+      "docker": "Docker and TrueNAS support"
+    }
+  },
+  "pricing": {
+    "title": "Packages for local networks",
+    "description": "Start free, request a Medium license for growing sites, or use Professional for custom limits and multi-branch monitoring.",
+    "plans": {
+      "free": {
+        "label": "Free",
+        "name": "Local Basic",
+        "description": "Good for small offices, home labs, and first installations.",
+        "features": {
+          "0": "100 devices",
+          "1": "1 subnet or VLAN",
+          "2": "300 checks or services",
+          "3": "Quick discovery",
+          "4": "Telegram alerts",
+          "5": "Basic reports",
+          "6": "Docker and TrueNAS support"
+        },
+        "cta": "Continue with Free"
+      },
+      "medium": {
+        "label": "Medium",
+        "name": "Local Pro",
+        "description": "For business networks that need more visibility and standard support.",
+        "features": {
+          "0": "500 devices",
+          "1": "Up to 10 subnets or VLANs",
+          "2": "Agent monitoring",
+          "3": "CPU, RAM, and disk checks",
+          "4": "Topology",
+          "5": "Full reports",
+          "6": "Bulk operations and standard support"
+        },
+        "cta": "Request Medium License"
+      },
+      "professional": {
+        "label": "Professional",
+        "name": "Local Enterprise",
+        "description": "Custom limits for multi-branch support teams and managed clients.",
+        "features": {
+          "0": "Unlimited or custom limits",
+          "1": "Multi-branch or multi-client",
+          "2": "Advanced reports",
+          "3": "Advanced topology",
+          "4": "Maintenance planning",
+          "5": "Priority support",
+          "6": "Custom license"
+        },
+        "cta": "Request Professional License"
+      }
+    }
+  },
+  "about": {
+    "title": "About DitakNet",
+    "description": "DitakNet exists to make local network monitoring practical for installers, support teams, and businesses that need answers quickly.",
+    "what": "It is a local network visibility platform for routers, cameras, NVRs, servers, websites, printers, VLANs, services, licenses, and support workflows.",
+    "who": "It is for small offices, CCTV operators, IT support teams, MSP-style work, and organizations that prefer local visibility.",
+    "why": "The product reduces unnecessary site visits by making the network state visible from one controlled local service.",
+    "vision": "The vision is a reliable local-first monitoring product with clean licensing, practical support, and multi-language customer communication."
+  },
+  "contact": {
+    "title": "Contact DitakNet",
+    "description": "Send a support, license, installation, partnership, or general question. The message is saved for the product owner or admin team.",
+    "submit": "Send message",
+    "success": "Message received. Support will contact you."
+  },
+  "support": {
+    "title": "Support center",
+    "description": "Find installation help, submit a ticket, request a license, or read the documentation.",
+    "helpCenter": "Help center",
+    "newTicket": "New ticket",
+    "tickets": "My tickets",
+    "license": "License request",
+    "docs": "Documentation",
+    "troubleshooting": "Common troubleshooting",
+    "createTicket": "Create ticket",
+    "reply": "Reply",
+    "sendReply": "Send reply",
+    "ticketDetail": "Ticket details",
+    "needLogin": "Please log in to create and view support tickets."
+  },
+  "docs": {
+    "title": "Documentation",
+    "description": "Guides for installing, activating, and operating DitakNet.",
+    "items": {
+      "getting-started": "Getting started",
+      "docker-installation": "Docker installation",
+      "truenas-installation": "TrueNAS installation",
+      "first-run-setup": "First-run setup",
+      "network-discovery": "Network discovery",
+      "licensing": "Licensing",
+      "telegram-alerts": "Telegram alerts",
+      "faq": "FAQ"
+    },
+    "body": "This page is ready for detailed product documentation. Use it for step-by-step installation notes, screenshots, troubleshooting, and support references."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": {
+      "0": {
+        "q": "What is DitakNet?",
+        "a": "It is a local network monitoring platform for devices, services, alerts, and support workflows."
+      },
+      "1": {
+        "q": "Does it need internet?",
+        "a": "Core local monitoring should run inside the network. Internet may be needed for updates, notifications, or license communication."
+      },
+      "2": {
+        "q": "Can it run on TrueNAS?",
+        "a": "Yes, the product is prepared for Docker and TrueNAS-style deployment."
+      },
+      "3": {
+        "q": "What is free?",
+        "a": "The Free package includes basic limits for devices, one subnet or VLAN, checks, alerts, reports, and local deployment."
+      },
+      "4": {
+        "q": "What requires activation?",
+        "a": "Medium and Professional packages require a license request and activation process."
+      },
+      "5": {
+        "q": "Can it monitor cameras?",
+        "a": "Yes, it can monitor camera and NVR availability through network checks."
+      },
+      "6": {
+        "q": "Can it monitor servers?",
+        "a": "Yes, it supports server checks and agent monitoring in higher packages."
+      },
+      "7": {
+        "q": "Does it scan public internet?",
+        "a": "No. The intended discovery scope is approved local networks and VLANs."
+      },
+      "8": {
+        "q": "Is the scan safe?",
+        "a": "Discovery should be limited to networks you own or manage and configured with safe local scopes."
+      },
+      "9": {
+        "q": "How do I request a license?",
+        "a": "Use the license request form and include your installation ID and package needs."
+      }
+    }
+  },
+  "blog": {
+    "title": "News",
+    "description": "A ready structure for product updates, release notes, and implementation articles.",
+    "placeholderTitle": "DitakNet public site is ready",
+    "placeholderText": "Admin-managed blog posts can be added later using the BlogPost model."
+  },
+  "auth": {
+    "registerTitle": "Create account",
+    "registerDescription": "Register to request licenses, create support tickets, and track your DitakNet communication.",
+    "registerCta": "Create account",
+    "loginTitle": "Login",
+    "loginDescription": "Access your account, license requests, and support tickets.",
+    "loginCta": "Login",
+    "emailExists": "An account with this email already exists.",
+    "invalidLogin": "Email or password is incorrect.",
+    "loginRequired": "Login is required.",
+    "forbidden": "You do not have access to this resource."
+  },
+  "account": {
+    "title": "Account",
+    "description": "Manage your DitakNet profile, licenses, tickets, messages, and next steps.",
+    "nextActions": "Next actions",
+    "requestLicense": "Request license",
+    "install": "Download or install DitakNet",
+    "setupGuide": "Read setup guide",
+    "contactSupport": "Contact support",
+    "licenses": "License requests",
+    "tickets": "Support tickets",
+    "messages": "Contact messages",
+    "profile": "Profile"
+  },
+  "license": {
+    "title": "Request license activation",
+    "description": "Send your installation ID and package request. This website collects requests; it does not generate final activation codes or expose signing keys.",
+    "submit": "Submit license request",
+    "activateInfoTitle": "Activation information",
+    "activateInfoDescription": "Your request is saved. Support will review it and contact you with the next activation steps.",
+    "myLicenses": "My license requests"
+  },
+  "community": {
+    "title": "Community discussions",
+    "description": "Ask public product questions that can later become documentation or FAQ answers.",
+    "ask": "Ask question"
+  },
+  "admin": {
+    "title": "Admin",
+    "dashboard": "Admin dashboard",
+    "description": "Manage users, license requests, contact messages, tickets, discussions, and public settings.",
+    "notes": "Admin notes",
+    "nav": {
+      "users": "Users",
+      "license-requests": "License requests",
+      "contact-messages": "Contact messages",
+      "tickets": "Tickets",
+      "discussions": "Discussions",
+      "settings": "Settings"
+    },
+    "settingsText": "Basic settings are prepared through environment variables. Editable database-backed settings can be added later."
+  },
+  "forms": {
+    "fields": {
+      "fullName": "Full name",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "companyName": "Company",
+      "phone": "Phone",
+      "telegram": "Telegram",
+      "country": "Country",
+      "preferredLanguage": "Preferred language",
+      "interestedPackage": "Interested package",
+      "useCase": "Use case",
+      "topic": "Topic",
+      "message": "Message",
+      "installationId": "Installation ID",
+      "ownerName": "Owner name",
+      "currentPackage": "Current package",
+      "requestedPackage": "Requested package",
+      "currentDevices": "Current devices",
+      "currentNetworks": "Current networks",
+      "reason": "Reason or notes",
+      "title": "Title",
+      "category": "Category",
+      "priority": "Priority",
+      "body": "Body",
+      "isPublic": "Visible publicly"
+    },
+    "hints": {
+      "password": "Use at least 8 characters."
+    },
+    "actions": {
+      "save": "Save",
+      "saving": "Saving..."
+    },
+    "errors": {
+      "generic": "Something went wrong. Please try again.",
+      "invalidPayload": "Please check the form fields.",
+      "invalidField": "Please check this field."
+    },
+    "packages": {
+      "FREE": "Free / Local Basic",
+      "MEDIUM": "Medium / Local Pro",
+      "PROFESSIONAL": "Professional / Local Enterprise"
+    },
+    "useCases": {
+      "HOME_SMALL_OFFICE": "Home / Small Office",
+      "CCTV_CAMERA_SYSTEM": "CCTV / Camera System",
+      "SERVERS_AND_WEBSITES": "Servers and Websites",
+      "BUSINESS_NETWORK": "Business Network",
+      "PROFESSIONAL_IT_MONITORING": "Professional IT Monitoring"
+    },
+    "contactTopics": {
+      "SUPPORT": "Support",
+      "LICENSE": "License",
+      "INSTALLATION_HELP": "Installation help",
+      "PARTNERSHIP": "Partnership",
+      "OTHER": "Other"
+    },
+    "ticketCategories": {
+      "INSTALLATION": "Installation",
+      "DISCOVERY": "Discovery",
+      "LICENSE": "License",
+      "TRUENAS": "TrueNAS",
+      "DOCKER": "Docker",
+      "TELEGRAM": "Telegram",
+      "CAMERA_NVR": "Camera/NVR",
+      "SERVER_MONITORING": "Server monitoring",
+      "BUG": "Bug",
+      "OTHER": "Other"
+    },
+    "priorities": {
+      "NORMAL": "Normal",
+      "HIGH": "High"
+    }
+  },
+  "status": {
+    "license": {
+      "NEW": "New",
+      "IN_REVIEW": "In review",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected",
+      "COMPLETED": "Completed"
+    },
+    "ticket": {
+      "OPEN": "Open",
+      "ANSWERED": "Answered",
+      "CLOSED": "Closed"
+    },
+    "discussion": {
+      "OPEN": "Open",
+      "ANSWERED": "Answered",
+      "CLOSED": "Closed"
+    }
+  }
+}

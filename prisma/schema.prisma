@@ -1,0 +1,127 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String             @id @default(cuid())
+  name               String
+  email              String             @unique
+  passwordHash       String
+  role               String             @default("USER")
+  companyName        String?
+  phone              String?
+  telegram           String?
+  country            String?
+  preferredLanguage  String             @default("hy")
+  interestedPackage  String?
+  useCase            String?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  licenseRequests    LicenseRequest[]
+  supportTickets     SupportTicket[]
+  supportMessages    SupportMessage[]   @relation("UserSupportMessages")
+  adminMessages      SupportMessage[]   @relation("AdminSupportMessages")
+  discussions         Discussion[]
+  discussionReplies  DiscussionReply[]
+}
+
+model LicenseRequest {
+  id                String   @id @default(cuid())
+  userId            String?
+  user              User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  installationId    String
+  currentPackage    String
+  requestedPackage  String
+  ownerName         String
+  companyName       String?
+  email             String
+  phone             String?
+  telegram          String?
+  currentDevices    Int?
+  currentNetworks   Int?
+  reason            String
+  status            String   @default("NEW")
+  adminNotes        String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model SupportTicket {
+  id        String           @id @default(cuid())
+  userId    String
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  category  String
+  status    String           @default("OPEN")
+  priority  String           @default("NORMAL")
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  messages  SupportMessage[]
+}
+
+model SupportMessage {
+  id        String        @id @default(cuid())
+  ticketId  String
+  ticket    SupportTicket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  userId    String?
+  user      User?         @relation("UserSupportMessages", fields: [userId], references: [id], onDelete: SetNull)
+  adminId   String?
+  admin     User?         @relation("AdminSupportMessages", fields: [adminId], references: [id], onDelete: SetNull)
+  message   String
+  createdAt DateTime      @default(now())
+}
+
+model ContactMessage {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  telegram    String?
+  companyName String?
+  topic       String
+  message     String
+  status      String   @default("NEW")
+  createdAt   DateTime @default(now())
+}
+
+model Discussion {
+  id        String            @id @default(cuid())
+  userId    String
+  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  body      String
+  category  String?
+  isPublic  Boolean           @default(true)
+  status    String            @default("OPEN")
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  replies   DiscussionReply[]
+}
+
+model DiscussionReply {
+  id            String     @id @default(cuid())
+  discussionId  String
+  discussion    Discussion @relation(fields: [discussionId], references: [id], onDelete: Cascade)
+  userId        String
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  body          String
+  isAdminAnswer Boolean    @default(false)
+  createdAt     DateTime   @default(now())
+}
+
+model BlogPost {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  excerpt   String
+  content   String
+  language  String   @default("hy")
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

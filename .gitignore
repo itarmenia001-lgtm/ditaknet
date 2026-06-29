@@ -1,0 +1,23 @@
+# Dependencies
+node_modules
+
+# Build / cache
+.next
+dist
+coverage
+*.tsbuildinfo
+
+# Environment & local data
+.env
+.env.local
+.env.*.local
+*.db
+*.db-journal
+prisma/dev.db
+
+# Logs
+logs
+*.log
+
+# Legacy assets
+public/images/localwatch-hero.*
